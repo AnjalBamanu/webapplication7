@@ -1,0 +1,43 @@
+﻿@model WebApplication7.Models.record
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm("UpdateData", "naya"))
+{
+ 
+    
+        <input type="hidden" name="id" class="form-control" value="@Model.id" />
+    
+
+    <label class="col-md-2">Name</label>
+    <div class="col-md-2">
+        <input type="text" name="name" class="form-control" value="@Model.name" />
+
+
+    </div>
+    <label class="col-md-2">Address</label>
+    <div class="col-md-2">
+        <input type="text" name="address" class="form-control" vlaue="@Model.address" />
+
+    </div>
+
+    <br />
+    <br />
+    <label class="col-md-2">Age</label>
+    <div class="col-md-2">
+        <input type="text" name="age" class="form-control"  value="@Model.age"/>
+    </div>
+    <br />
+    <br />
+
+    <button class="submithh">Submit</button>
+
+}
+
+
+
+
+
+
