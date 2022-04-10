@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="employeeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="emp_salary">
+    <Key>
+      <PropertyRef Name="s_id" />
+      <PropertyRef Name="e_id" />
+    </Key>
+    <Property Name="s_id" Type="int" Nullable="false" />
+    <Property Name="e_id" Type="int" Nullable="false" />
+    <Property Name="salary" Type="int" />
+  </EntityType>
+  <EntityType Name="emp_table">
+    <Key>
+      <PropertyRef Name="e_id" />
+    </Key>
+    <Property Name="e_id" Type="int" Nullable="false" />
+    <Property Name="e_name" Type="varchar" MaxLength="20" />
+    <Property Name="e_address" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <Association Name="FK__emp_salary__e_id__1920BF5C">
+    <End Role="emp_table" Type="Self.emp_table" Multiplicity="1" />
+    <End Role="emp_salary" Type="Self.emp_salary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="emp_table">
+        <PropertyRef Name="e_id" />
+      </Principal>
+      <Dependent Role="emp_salary">
+        <PropertyRef Name="e_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="employeeModelStoreContainer">
+    <EntitySet Name="emp_salary" EntityType="Self.emp_salary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="emp_table" EntityType="Self.emp_table" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__emp_salary__e_id__1920BF5C" Association="Self.FK__emp_salary__e_id__1920BF5C">
+      <End Role="emp_table" EntitySet="emp_table" />
+      <End Role="emp_salary" EntitySet="emp_salary" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

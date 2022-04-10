@@ -1,0 +1,30 @@
+﻿@model List<WebApplication2.Models.emp_table>
+@{
+    ViewBag.Title = "MainTable";
+}
+
+<h2>MainTable</h2>
+<table border="1" class="table">
+    <tr>
+
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var data in Model)
+            {
+<tr>
+    <td>@(data.e_id)</td>
+    <td>@(data.e_name)</td>
+    <td>@(data.e_address)</td>
+    <td><a href="@Url.Action("Edit_empdata", new {e_id = data.e_id})">Edit</a></td>
+    <td><a href="@Url.Action("Delete_empdata", new {e_id = data.e_id})">Delete</a></td>
+</tr>
+               
+            }
+
+</table>
+
+

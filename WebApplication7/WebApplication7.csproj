@@ -129,7 +129,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\nayaController.cs" />
+    <Compile Include="Controllers\seocondroller.cs" />
+    <Compile Include="Controllers\ThirdController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -209,6 +210,7 @@
     <Content Include="Views\naya\Index.cshtml" />
     <Content Include="Views\naya\Arko.cshtml" />
     <Content Include="Views\naya\Edit.cshtml" />
+    <Content Include="Views\Third\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

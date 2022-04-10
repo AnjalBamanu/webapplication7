@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Employee Salary Details</h2>
+@using (Html.BeginForm("Create", "Third", FormMethod.Post))
+            {
+                <label>Name: </label>
+                @Html.DropDownList("emp_list", null, "Select", htmlAttributes: new { @Name = "e_id" });
+                 <input type="text" name="e_name" />
+                <label>Salary Paid: </label>
+                <input type="text" name="e_salary" />
+                <label>Paid Date: </label>
+                <input type="date" name="e_date" />
+               <br />
+            }
+

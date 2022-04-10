@@ -1,0 +1,27 @@
+﻿@model WebApplication2.Models.emp_table
+@{
+    ViewBag.Title = "Edit_empdata";
+}
+
+<h2>Edit_empdata</h2>
+@using (Html.BeginForm("Update_employeedata", "First"))
+{
+    <label>Id:</label>
+    <input type="text" name="e_id" value="@(Model.e_id)" />
+    <br />
+
+    <label>Name:</label>
+    <input type="text" name="e_name" value="@(Model.e_name)" />
+    <br />
+
+    <label>Address:</label>
+    <input type="text" name="e_address" value="@(Model.e_address)" />
+    <br />
+    <button type="submit">Update</button>
+
+}
+
+
+
+
+

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "SalaryTable";
+}
+
+<h2>SalaryTable</h2>
+<table border="1" class="table">
+    <tr>
+
+        <th> Salary ID</th>
+        <th>Employee Id</th>
+        <th>Salary Paid</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @foreach (var data in Model)
+    {
+        <tr>
+            <td>@(data.s_id)</td>
+            <td>@(data.e_id)</td>
+            <td>@(data.salary)</td>
+            <td><a href="@Url.Action("Edit_empdata", new {id = data.s_id})">Edit</a></td>
+            <td><a href="@Url.Action("Delete_empdata", new {id = data.s_id})">Delete</a></td>
+        </tr>
+
+    }
+
+</table>
+
+
+
+
+

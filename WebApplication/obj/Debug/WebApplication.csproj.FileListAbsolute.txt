@@ -1,0 +1,2 @@
+D:\Anjal ko\WebApplication\obj\Debug\WebApplication.csproj.AssemblyReference.cache
+D:\Anjal ko\WebApplication\obj\Debug\WebApplication.csproj.CoreCompileInputs.cache
