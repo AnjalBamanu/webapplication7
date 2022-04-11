@@ -3,9 +3,8 @@
   <EntityType Name="emp_salary">
     <Key>
       <PropertyRef Name="s_id" />
-      <PropertyRef Name="e_id" />
     </Key>
-    <Property Name="s_id" Type="int" Nullable="false" />
+    <Property Name="s_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="e_id" Type="int" Nullable="false" />
     <Property Name="salary" Type="int" />
   </EntityType>

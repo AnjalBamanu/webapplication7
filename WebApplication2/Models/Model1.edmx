@@ -8,9 +8,8 @@
         <EntityType Name="emp_salary">
           <Key>
             <PropertyRef Name="s_id" />
-            <PropertyRef Name="e_id" />
           </Key>
-          <Property Name="s_id" Type="int" Nullable="false" />
+          <Property Name="s_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="e_id" Type="int" Nullable="false" />
           <Property Name="salary" Type="int" />
         </EntityType>
@@ -46,19 +45,10 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="employeeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="emp_table">
-          <Key>
-            <PropertyRef Name="e_id" />
-          </Key>
-          <Property Name="e_id" Type="Int32" Nullable="false" />
-          <Property Name="e_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="e_address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="emp_salary" Relationship="employeeModel.FK__emp_salary__e_id__164452B1" FromRole="emp_table" ToRole="emp_salary" />
-        </EntityType>
         <EntityContainer Name="employeeEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="emp_table" EntityType="Self.emp_table" />
           <EntitySet Name="emp_salary" EntityType="employeeModel.emp_salary" />
-          <AssociationSet Name="FK__emp_salary__e_id__164452B1" Association="employeeModel.FK__emp_salary__e_id__164452B1">
+          <EntitySet Name="emp_table" EntityType="employeeModel.emp_table" />
+          <AssociationSet Name="FK__emp_salary__e_id__1920BF5C" Association="employeeModel.FK__emp_salary__e_id__1920BF5C">
             <End Role="emp_table" EntitySet="emp_table" />
             <End Role="emp_salary" EntitySet="emp_salary" />
           </AssociationSet>
@@ -66,14 +56,22 @@
         <EntityType Name="emp_salary">
           <Key>
             <PropertyRef Name="s_id" />
+          </Key>
+          <Property Name="s_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="e_id" Type="Int32" Nullable="false" />
+          <Property Name="salary" Type="Int32" />
+          <NavigationProperty Name="emp_table" Relationship="employeeModel.FK__emp_salary__e_id__1920BF5C" FromRole="emp_salary" ToRole="emp_table" />
+        </EntityType>
+        <EntityType Name="emp_table">
+          <Key>
             <PropertyRef Name="e_id" />
           </Key>
-          <Property Name="s_id" Type="Int32" Nullable="false" />
           <Property Name="e_id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="emp_table" Relationship="employeeModel.FK__emp_salary__e_id__164452B1" FromRole="emp_salary" ToRole="emp_table" />
-          <Property Name="salary" Type="Int32" />
+          <Property Name="e_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="e_address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="emp_salary" Relationship="employeeModel.FK__emp_salary__e_id__1920BF5C" FromRole="emp_table" ToRole="emp_salary" />
         </EntityType>
-        <Association Name="FK__emp_salary__e_id__164452B1">
+        <Association Name="FK__emp_salary__e_id__1920BF5C">
           <End Type="employeeModel.emp_table" Role="emp_table" Multiplicity="1" />
           <End Type="employeeModel.emp_salary" Role="emp_salary" Multiplicity="*" />
           <ReferentialConstraint>
@@ -91,21 +89,21 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="employeeModelStoreContainer" CdmEntityContainer="employeeEntities">
-          <EntitySetMapping Name="emp_table">
-            <EntityTypeMapping TypeName="employeeModel.emp_table">
-              <MappingFragment StoreEntitySet="emp_table">
-                <ScalarProperty Name="e_id" ColumnName="e_id" />
-                <ScalarProperty Name="e_name" ColumnName="e_name" />
-                <ScalarProperty Name="e_address" ColumnName="e_address" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="emp_salary">
             <EntityTypeMapping TypeName="employeeModel.emp_salary">
               <MappingFragment StoreEntitySet="emp_salary">
                 <ScalarProperty Name="salary" ColumnName="salary" />
                 <ScalarProperty Name="e_id" ColumnName="e_id" />
                 <ScalarProperty Name="s_id" ColumnName="s_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emp_table">
+            <EntityTypeMapping TypeName="employeeModel.emp_table">
+              <MappingFragment StoreEntitySet="emp_table">
+                <ScalarProperty Name="e_address" ColumnName="e_address" />
+                <ScalarProperty Name="e_name" ColumnName="e_name" />
+                <ScalarProperty Name="e_id" ColumnName="e_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

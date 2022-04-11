@@ -1,7 +1,23 @@
-﻿
+﻿@model WebApplication2.Models.emp_salary
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit_Salary";
 }
+<h2>Salary Update</h2>
+@using (Html.BeginForm("Update_salarydata", null))
+{
 
-<h2>Edit</h2>
+    
+        <label>S Id:</label>
+        <input type="text" name="s_id" value="@(Model.s_id)" />
+        <br />
+        <label>E Id: </label>
+        <input type="text" name="e_id" value="@(Model.e_id)" />
+
+        <label>Salary Paid:</label>
+        <input type="text" name="salary" value="@(Model.salary)" />
+        <br />
+        <input type="submit" value="Upadate" />
+
+  
+}
 

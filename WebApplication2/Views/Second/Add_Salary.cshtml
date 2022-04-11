@@ -4,9 +4,12 @@
 @{
     ViewBag.Title = "Salary";
 }
-
+@using (Html.BeginForm("Save_salarydata", "Second", FormMethod.Post))
+{ 
 <h2>Salary</h2>
+@Html.DropDownList("employeList", null, "select", htmlAttributes: new { @Name = "e_id", @class = "formcontrol" })
 <form action="Save_salarydata">
+
 <label>salary Id:</label>
 <input type="text" name="s_id" />
 <br />
@@ -19,3 +22,4 @@
 <button type="submit">Add</button>
 
 </form>
+}

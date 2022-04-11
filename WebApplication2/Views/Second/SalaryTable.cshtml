@@ -1,4 +1,4 @@
-﻿
+﻿@model List<WebApplication2.Models.emp_salary>
 @{
     ViewBag.Title = "SalaryTable";
 }
@@ -19,8 +19,8 @@
             <td>@(data.s_id)</td>
             <td>@(data.e_id)</td>
             <td>@(data.salary)</td>
-            <td><a href="@Url.Action("Edit_empdata", new {id = data.s_id})">Edit</a></td>
-            <td><a href="@Url.Action("Delete_empdata", new {id = data.s_id})">Delete</a></td>
+            <td><a href="@Url.Action("Edit_Salary", new {s_id = data.s_id})">Edit</a></td>
+            <td><a href="@Url.Action("Delete_empdata", new {s_id = data.s_id})">Delete</a></td>
         </tr>
 
     }

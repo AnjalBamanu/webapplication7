@@ -25,7 +25,7 @@ namespace WebApplication2.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<emp_table> emp_table { get; set; }
         public virtual DbSet<emp_salary> emp_salary { get; set; }
+        public virtual DbSet<emp_table> emp_table { get; set; }
     }
 }
